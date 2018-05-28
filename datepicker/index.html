@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/picker.min.js"></script>
+</head>
+<body>
+    <input id="name">选择日期</div>
+    <script>
+        var nameEl = document.getElementById('name');
+        var data1 = [];
+        for(let i = 1; i <= 31; i++){
+            data1.push({text:i,value:i})
+        };
+        var data2 = [
+            {
+                text:'January',
+                value:1
+            },
+            {
+                text:'February',
+                value:2
+            },
+            {
+                text:'March',
+                value:3
+            },
+            {
+                text:'April',
+                value:4
+            },
+            {
+                text:'May',
+                value:5
+            },
+            {
+                text:'June',
+                value:6
+            },
+            {
+                text:'July',
+                value:7
+            },
+            {
+                text:'August',
+                value:8
+            },
+            {
+                text:'September',
+                value:9
+            },
+            {
+                text:'October',
+                value:10
+            },
+            {
+                text:'Novmber',
+                value:11
+            },
+            {
+                text:'December',
+                value:12
+            }
+        ];
+        var data3 = [];
+        for(let i = 0; i < 60; i++){
+            data3.push({text: 2018 - 60 + 1 + i,value: i})
+        };
+        var picker = new Picker({
+            data: [data1, data2, data3],
+            selectedIndex: [15, 6, 10],
+            title: ''
+        });
+        picker.on('picker.change', function (index, selectedIndex) {
+            console.log(index);
+            console.log(selectedIndex);
+        });
+        nameEl.addEventListener('click', function () {
+            picker.show();
+        });
+    </script>
+</body>
+</html>
